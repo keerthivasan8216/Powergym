@@ -65,26 +65,29 @@ const trainingData = [
 
 const Traininglist = () => {
   return (
-    <div className="training-container">
+    <div className="training-list">
       <h2>Weekly Training Plan</h2>
-      {trainingData.map((dayPlan, index) => (
-        <div key={index} className="day-card">
-          <h3>{dayPlan.day} - {dayPlan.workout}</h3>
-          {dayPlan.exercises.length > 0 ? (
-            <ul>
-              {dayPlan.exercises.map((exercise, i) => (
-                <li key={i}>
-                  {exercise.name} – {exercise.sets} sets × {exercise.reps} reps
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>Rest and recovery.</p>
-          )}
-        </div>
-      ))}
+      <div className="training-grid">
+        {trainingData.map((dayPlan, index) => (
+          <div key={index} className="training-card">
+            <h3>{dayPlan.day} - {dayPlan.workout}</h3>
+            {dayPlan.exercises.length > 0 ? (
+              <ul>
+                {dayPlan.exercises.map((exercise, i) => (
+                  <li key={i}>
+                    {exercise.name} – {exercise.sets} sets × {exercise.reps} reps
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>Rest and recovery.</p>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default Traininglist;
+

@@ -16,7 +16,7 @@ const Customer = () => {
       <Routes>
         <Route path="home" element={<Customerhome />} />
         <Route path="/" element={<Customerhome />} />
-        <Route path="/" element={<Traininglist/>} />
+        <Route path="traininglist" element={<Traininglist/>} />
         <Route path="checkbox" element={<Checkbox />} />
         <Route path="products" element={<Custproduct />} />
         <Route path="review" element={<ReviewPage />} />

@@ -1,9 +1,9 @@
 import React from 'react'
 import './customerhome.css'
-import TrainingList from './Traininglist'
 import Checkbox from './Checkbox'
 import Custproduct from './Custproduct'
 import ReviewPage from './Reviewpage'
+import Traininglist from './Traininglist'
 const Customerhome = () => {
   return (
     <>
@@ -48,7 +48,7 @@ const Customerhome = () => {
       </div>
     </div>
   </div>
-  <TrainingList/>
+  <Traininglist/>
   <Checkbox/>
   <Custproduct/>
   <ReviewPage/>
