@@ -124,3 +124,37 @@
     align-items: center;
   }
 }
+.customer-form {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.customer-form input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #2c2c3e;
+  color: #fff;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.customer-form input::placeholder {
+  color: #aaa;
+}
+
+.customer-form input:hover {
+  box-shadow: 0 0 10px 2px #ffcc00;
+}

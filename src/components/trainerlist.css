@@ -131,4 +131,50 @@
       align-items: center;
     }
   }
+  .trainer-form {
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.06);
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.6s ease forwards;
+    color: #fff;
+  }
   
+  .trainer-form input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  .trainer-form input::placeholder {
+    color: #ddd;
+  }
+  
+  .trainer-form input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px #ffcc00;
+  }
+  
+  .trainer-form .addbtn {
+    margin-top: 10px;
+  }
+  .trainer-form input:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px #ffcc00, 0 0 12px #ffcc00aa;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+    border: none;
+  }
+    

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './trainerlist.css';
 
 const TrainersList = () => {
-  const trainers = [
+  const [trainers, setTrainers] = useState([
     {
       id: 1,
       name: 'Riyas',
@@ -19,37 +19,80 @@ const TrainersList = () => {
       age: '21',
       image: 'https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0='
     },
-    {
-      id: 3,
-      name: 'Monica',
-      specialty: 'Fat Loss',
-      gender: 'Female',
-      age: '27',
-      image: 'https://t3.ftcdn.net/jpg/05/62/09/28/360_F_562092860_mWJBNRqTg4rarfoJaSdkaLlfy1dkrP33.jpg'
-    }
-  ];
+  ]);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    specialty: '',
+    gender: '',
+    age: '',
+    image: ''
+  });
+
+  const [showForm, setShowForm] = useState(false); // toggle state
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newTrainer = {
+      id: trainers.length + 1,
+      ...formData
+    };
+    setTrainers([...trainers, newTrainer]);
+    setFormData({
+      name: '',
+      specialty: '',
+      gender: '',
+      age: '',
+      image: ''
+    });
+    setShowForm(false); // hide form after submit
+  };
 
   return (
     <div className="trainers-list">
-      <h2>Trainers List</h2>
+      <h2>Our Trainers</h2>
+
+      {showForm && (
+        <form onSubmit={handleSubmit} className="trainer-form">
+        <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+        <input name="specialty" placeholder="Specialty" value={formData.specialty} onChange={handleChange} required />
+        <input name="gender" placeholder="Gender" value={formData.gender} onChange={handleChange} required />
+        <input name="age" type="number" placeholder="Age" value={formData.age} onChange={handleChange} required />
+        <input name="image" placeholder="Image URL" value={formData.image} onChange={handleChange} />
+        <div className="button">
+          <button type="submit" className="addbtn">Save Trainer</button>
+        </div>
+      </form>
+      )}
+
       <div className="trainer">
         {trainers.map((trainer) => (
           <div className="trainer-card" key={trainer.id}>
-            <div className="trainer-info">
-              <p><strong>Name:</strong> {trainer.name}</p>
-              <p><strong>Specialty:</strong> {trainer.specialty}</p>
-              <p><strong>Gender:</strong> {trainer.gender}</p>
-              <p><strong>Age:</strong> {trainer.age}</p>
-            </div>
             <div className="trainer-image-hover">
-              <img src={trainer.image} alt={trainer.name} />
+              {trainer.image && <img src={trainer.image} alt={trainer.name} />}
+            </div>
+            <div className="trainer-info">
+              <h3>{trainer.name}</h3>
+              <p>Specialty: {trainer.specialty}</p>
+              <p>Gender: {trainer.gender}</p>
+              <p>Age: {trainer.age}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className='button'>
-        <button className='addbtn'>Add Trainer</button>
-        <button className='delbtn'>Delete Trainer</button>
+      <div className="button">
+        <button className="addbtn" onClick={toggleForm}>
+          {showForm ? 'Close Form' : 'Add Trainer'}
+        </button>
       </div>
     </div>
   );
