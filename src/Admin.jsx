@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TrainersList from './components/TrainersList'
-import Customerlist from './components/Customerlist'
-import Productlist from './components/Productlist'
-import Equipmentlist from './components/Equipmentlist'
-import Attendancelist from './components/Attendancelist'
+import TrainersList from './components/TrainersList';
+import Customerlist from './components/Customerlist';
+import Productlist from './components/Productlist';
+import Equipmentlist from './components/Equipmentlist';
+import Attendancelist from './components/Attendancelist';
 import Admnav from './components/Admnav';
-import Login from './components/Login'
+import Login from './components/Login';
 import Admhome from './components/Admhome';
 const Admin = () => {
   return (

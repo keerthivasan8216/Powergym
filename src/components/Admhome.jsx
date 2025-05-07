@@ -1,6 +1,6 @@
 import React from 'react'
 import './admhome.css'
-import TrainersList from './Trainerslist'
+import TrainersList from './TrainersList'
 import Customerlist from './Customerlist'
 import ProductList from './Productlist'
 import AttendanceList from './Attendancelist'
