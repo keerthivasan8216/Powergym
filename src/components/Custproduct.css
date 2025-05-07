@@ -1,0 +1,93 @@
+/* General Styling for Product List */
+.product-list {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light background for the whole page */
+  }
+  
+  /* Styling the Grid of Products */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns in the grid */
+    gap: 20px; /* Space between each card */
+    justify-items: center; /* Center each card horizontally */
+  }
+  
+  /* Styling for Individual Product Cards */
+  .product-card {
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: space-between; /* Push the button to the bottom */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    height: 350px; 
+    width: 100%; 
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+    border-radius: 5px; 
+    margin-bottom: 10px;
+  }
+  .product-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .product-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .buy-button-container {
+    margin-top: auto; 
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .buy-button-container button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buy-button-container button:hover {
+    background-color: #218838;
+  }
+  
+  /* Hover effect for Product Cards */
+  .product-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .product-list {
+    padding: 30px;
+    background-color: #f8f8f8;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: 1fr 1fr; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-grid {
+      grid-template-columns: 1fr; 
+    }
+  }
+  

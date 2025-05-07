@@ -1,0 +1,64 @@
+.benefit-body {
+    background: linear-gradient(to bottom, #000000, #1c1c1c);
+    color: white;
+    padding: 50px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+  
+  .benefit-heading {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .benefit-heading h1 {
+    font-size: 40px;
+    color: #ffcc00;
+    text-shadow: 0 0 8px #ffcc00;
+  }
+  
+  .benefit-heading h1 span {
+    color: rgb(255, 255, 255);
+  }
+  
+  .benefit-heading h2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #ccc;
+    margin-top: 10px;
+  }
+  
+  .benefit-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .benefit-card {
+    background-color: #222;
+    border: 1px solid #ffcc00;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .benefit-card h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+    font-size: 22px;
+    text-shadow: 0 0 6px #ffcc00aa;
+  }
+  
+  .benefit-card p {
+    color: #ddd;
+    font-size: 16px;
+  }
+  
+  .benefit-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ffcc00aa;
+  }
+  
