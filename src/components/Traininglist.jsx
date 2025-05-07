@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './Trainerlist.css';
+import './Training.css';
 
 const TrainersList = () => {
   const trainers = [
