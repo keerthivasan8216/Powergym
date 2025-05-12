@@ -1,26 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './admnav.css';
-import Admhome from './Admhome';
 
 const Admnav = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('userType');
+    navigate('/'); 
+  };
+
   return (
-    <>
-    <nav className='navigation'>
+    <nav className="navigation">
       <h1>POWER GYM</h1>
-      <ul className='list'>
-      <li><Link to="home">Home</Link></li>
-      <li><Link to="trainers">Trainers list</Link></li>
-      <li><Link to="customers">Customer list</Link></li>
-      <li><Link to="products">Product list</Link></li>
-      <li><Link to="equipment">Equipment list</Link></li>
-      <li><Link to="attendance">Attendance</Link></li>
-      <li><Link to="../Login">Logout</Link></li>
+      <ul className="list">
+        <li><Link to="/admin/home">Home</Link></li>
+        <li><Link to="/admin/trainers">Trainers List</Link></li>
+        <li><Link to="/admin/customers">Customer List</Link></li>
+        <li><Link to="/admin/products">Product List</Link></li>
+        <li><Link to="/admin/equipment">Equipment List</Link></li>
+        <li><Link to="/admin/attendance">Attendance</Link></li>
+        <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
       </ul>
     </nav>
-    </>
   );
 };
 
 export default Admnav;
-

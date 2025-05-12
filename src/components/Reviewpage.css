@@ -1,112 +1,89 @@
 .review-page {
-    background: linear-gradient(to bottom, #000000, #1c1c1c);
-    color: #ffcc00;
-    padding: 50px 30px;
-    font-family: 'Segoe UI', sans-serif;
-    min-height: 100vh;
-  }
-  
-  .review-heading {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  
-  .review-heading h1 {
-    font-size: 40px;
-    color: #ffcc00;
-    text-shadow: 0 0 8px #ffcc00;
-  }
-  
-  .review-heading h1 span {
-    color: rgb(255, 255, 255);
-  }
-  
-  .review-heading h2 {
-    font-size: 20px;
-    font-weight: normal;
-    color: #ccc;
-    margin-top: 10px;
-  }
-  
-  .review-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .review-form {
-    background-color: #222;
-    border: 1px solid #ffcc00;
-    padding: 30px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-  }
-  
-  .review-form .form-group {
-    margin-bottom: 25px;
-  }
-  
-  .review-form label {
-    font-weight: 600;
-    color: #ffcc00;
-    font-size: 18px;
-  }
-  
-  .review-form textarea {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    resize: vertical;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ddd;
-  }
-  
-  .review-form input[type="file"] {
-    display: block;
-    margin-top: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ddd;
-  }
-  
-  .submit-button {
-    padding: 12px 25px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:hover {
-    background-color: #218838;
-  }
-  
-  .review-form:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #ffcc00aa;
-  }
-  
-  .image-preview {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .image-preview img {
-    max-width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
+  background: linear-gradient(135deg, #121212, #1e1e2f, #2b2b45);
+  color: #ffcc00;
+  padding: 50px 30px;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+.review-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.review-heading h1 {
+  font-size: 40px;
+  color: #ffcc00;
+  text-shadow: 0 0 8px #ffcc00;
+}
+
+.review-heading h1 span {
+  color: #ffffff;
+}
+
+.review-heading h2 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+.review-content {
+  display: flex;
+  justify-content: center;
+}
+
+.review-form {
+  background-color: #222;
+  border: 1px solid #ffcc00;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-form:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #ffcc00aa;
+}
+
+.review-form .form-group {
+  margin-bottom: 25px;
+}
+
+.review-form label {
+  font-weight: 600;
+  color: #ffcc00;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.review-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: vertical;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+}
+
+.submit-button {
+  padding: 12px 25px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #218838;
+}

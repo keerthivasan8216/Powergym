@@ -8,12 +8,26 @@ const Checkbox = () => {
   const [checkedDays, setCheckedDays] = useState({});
 
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
   const storageKey = `${currentYear}-${currentMonth}`;
+
   useEffect(() => {
     const storedData = localStorage.getItem(storageKey);
-    setCheckedDays(storedData ? JSON.parse(storedData) : {});
+    let parsedData = storedData ? JSON.parse(storedData) : {};
+
+    const isCurrentMonth =
+      today.getFullYear() === currentYear && today.getMonth() === currentMonth;
+
+    if (isCurrentMonth) {
+      for (let day = 1; day <= today.getDate(); day++) {
+        if (!parsedData[day]) {
+          parsedData[day] = true;
+        }
+      }
+    }
+
+    setCheckedDays(parsedData);
   }, [currentMonth, currentYear]);
+
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(checkedDays));
   }, [checkedDays, storageKey]);

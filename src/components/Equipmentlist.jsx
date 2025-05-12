@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './equipmentlist.css';
 
 const EquipmentList = () => {
-  const equipmentData = [
+  const [equipmentData, setEquipmentData] = useState([
     {
       id: 1,
       name: 'Treadmill',
@@ -31,11 +31,18 @@ const EquipmentList = () => {
       buyingYear: 2018,
       repairedDate: '2022-09-05',
     },
-  ];
+  ]);
+
+  const handleChange = (id, field, value) => {
+    const updatedData = equipmentData.map(item =>
+      item.id === id ? { ...item, [field]: value } : item
+    );
+    setEquipmentData(updatedData);
+  };
 
   return (
     <div className="equipment-list">
-      <center><h2>Equipment List</h2></center>
+      <h2>Equipment List</h2>
       <table className="equipment-table">
         <thead>
           <tr>
@@ -49,9 +56,36 @@ const EquipmentList = () => {
           {equipmentData.map((item) => (
             <tr key={item.id}>
               <td>{item.name}</td>
-              <td>{item.quantity}</td>
-              <td>{item.buyingYear}</td>
-              <td>{item.repairedDate}</td>
+              <td>
+                <input
+                  type="number"
+                  className="input-cell"
+                  value={item.quantity}
+                  onChange={(e) =>
+                    handleChange(item.id, 'quantity', parseInt(e.target.value) || 0)
+                  }
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  className="input-cell"
+                  value={item.buyingYear}
+                  onChange={(e) =>
+                    handleChange(item.id, 'buyingYear', parseInt(e.target.value) || 0)
+                  }
+                />
+              </td>
+              <td>
+                <input
+                  type="date"
+                  className="input-cell"
+                  value={item.repairedDate}
+                  onChange={(e) =>
+                    handleChange(item.id, 'repairedDate', e.target.value)
+                  }
+                />
+              </td>
             </tr>
           ))}
         </tbody>

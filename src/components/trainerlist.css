@@ -61,8 +61,6 @@
     font-weight: 500;
     z-index: 1;
   }
-  
-  /* Image overlay appears on hover */
   .trainer-image-hover {
     position: absolute;
     top: 0;
@@ -177,4 +175,33 @@
     transition: box-shadow 0.3s ease, background 0.3s ease;
     border: none;
   }
-    
+  .trainer-form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    appearance: none; 
+    outline: none;
+    transition: all 0.3s ease;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='white' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+  }
+  
+  .trainer-form select:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px #ffcc00, 0 0 12px #ffcc00aa;
+  }
+  
+  .trainer-form select:focus {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px #ffcc00;
+  }
+  .gen{
+    color: #000;
+  }

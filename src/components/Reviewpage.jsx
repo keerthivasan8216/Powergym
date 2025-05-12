@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 import './Reviewpage.css';
 
 const ReviewPage = () => {
   const [review, setReview] = useState({
-    image: '',
     description: '',
   });
 
@@ -16,53 +14,40 @@ const ReviewPage = () => {
     }));
   };
 
-  const handleImageChange = (e) => {
-    setReview((prev) => ({
-      ...prev,
-      image: URL.createObjectURL(e.target.files[0]),
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Review Submitted!');
+    setReview({ description: '' });
   };
 
   return (
     <div className="review-page">
-      <h2>Submit Your Review</h2>
-      <form onSubmit={handleSubmit} className="review-form">
-        <div className="form-group">
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            value={review.description}
-            onChange={handleInputChange}
-            placeholder="Write your review here"
-            rows="5"
-          />
-        </div>
+      <div className="review-heading">
+        <h1>
+          Customer <span>Review</span>
+        </h1>
+        <h2>We value your feedback</h2>
+      </div>
 
-        <div className="form-group">
-          <label htmlFor="image">Upload an Image:</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/"
-            onChange={handleImageChange} />
-        </div>
-        {review.image && (
-          <div className="image-preview">
-            <img src={review.image} alt="Review Preview" />
+      <div className="review-content">
+        <form onSubmit={handleSubmit} className="review-form">
+          <div className="form-group">
+            <label htmlFor="description">Your Review</label>
+            <textarea
+              id="description"
+              name="description"
+              value={review.description}
+              onChange={handleInputChange}
+              placeholder="Write your review here..."
+              rows="5"
+            />
           </div>
-        )}
 
-        <button type="submit" className="submit-button">
-          Submit Review
-        </button>
-      </form>
+          <button type="submit" className="submit-button">
+            Submit Review
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -72,18 +72,25 @@
     font-size: 28px;
   }
 }
-.additem{
-  background-color: red;
-  margin-top: 20px;
-  font-size: 1.5rem;
-  border-radius: 20px;
-  color:white;
+
+.input-cell {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: 0.3s ease;
 }
-.additem:hover{
-  background-color: red;
-  margin-top: 20px;
-  font-size: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 0 10px 0.5px red;
-  color:white;
+
+.input-cell:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px #ffcc00;
+}
+
+.input-cell:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px #ffcc00, 0 0 12px #ffcc00aa;
 }

@@ -8,15 +8,17 @@ const Customerlist = () => {
     { id: 3, name: "Raja", specialty: "Fat loss", gender: "Male", age: "27" },
   ]);
 
-  const [showForm, setShowForm] = useState(false);  // Toggle visibility of the form
+  const [showForm, setShowForm] = useState(false);  
   const [formData, setFormData] = useState({
     name: "",
     specialty: "",
     gender: "",
     age: "",
+    address:"",
+    phone:"",
   });
 
-  const toggleForm = () => setShowForm(prev => !prev);  // Toggle the form's visibility
+  const toggleForm = () => setShowForm(prev => !prev); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,7 +29,7 @@ const Customerlist = () => {
     const newCustomer = { id: Date.now(), ...formData };
     setCustomers([...customers, newCustomer]);
     setFormData({ name: "", specialty: "", gender: "", age: "" });
-    setShowForm(false);  // Close the form after submitting
+    setShowForm(false);
   };
 
   return (
@@ -73,13 +75,11 @@ const Customerlist = () => {
             value={formData.specialty}
             onChange={handleChange}
           />
-          <input
-            type="text"
-            name="gender"
-            placeholder="Gender"
-            value={formData.gender}
-            onChange={handleChange}
-          />
+           <select name="gender" value={formData.gender} onChange={handleChange} required>
+          <option value="">Select Gender</option>
+          <option value="Male" className="gen">Male</option>
+          <option value="Female" className="gen">Female</option>
+        </select>
           <input
             type="number"
             name="age"
@@ -87,6 +87,9 @@ const Customerlist = () => {
             value={formData.age}
             onChange={handleChange}
           />
+           <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
+           <input type="text" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} required />
+           <input type="file" name="image" accept="image/*" onChange={handleChange} required />
           <button className="addbtn" type="submit">Save Customer</button>
         </form>
       )}

@@ -1,9 +1,10 @@
 import React from 'react'
 import './admhome.css'
-import TrainersList from './TrainersList'
+import TrainersList from './Trainerslist'
 import Customerlist from './Customerlist'
 import ProductList from './Productlist'
 import AttendanceList from './Attendancelist'
+import EquipmentList from './Equipmentlist'
 
 const Admhome = () => {
   return (
@@ -52,6 +53,7 @@ const Admhome = () => {
     <TrainersList/>
     <Customerlist/>
     <ProductList/>
+    <EquipmentList/>
     <AttendanceList/>
     </>
   )

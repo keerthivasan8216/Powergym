@@ -1,96 +1,52 @@
 import React, { useState } from 'react';
-import './productlist.css';
+import './productlist.css'; 
+import adjdumbell from '/assets/adjdumbell.jpg'
+import yogamat from '/assets/yogamat.jpeg'
+import proteinpowder from '/assets/proteinpowder.png'
 
-// Import images
-import proteinImage from "/assets/pngwing.png";
-import yogaMatImage from "/assets/images.jpeg";
-import dumbbellsImage from "/assets/dumbell.jpeg";
-import treadmillOilImage from "/assets/tredmilloil.jpeg";
-import resistanceBandsImage from "/assets/resistenceband.png";
-import kettlebellImage from "/assets/ketbell.jpeg";
+const dummyProducts = [
+  { id: 1, name: 'Protein Powder', price: '₹2050', description: 'Our premium protein powder helps build lean muscle mass and supports recovery post-workout. Packed with high-quality whey protein isolate, it mixes easily and tastes great. No added sugar, gluten-free, and trusted by fitness experts across the globe. Ideal for bodybuilders, athletes, and anyone seeking a convenient protein source.', image: proteinpowder },
+  { id: 2, name: 'Yoga Mat', price: '₹200', description: 'This anti-slip yoga mat provides excellent cushioning for your joints during stretches and poses. Made from eco-friendly material, it is lightweight, durable, and perfect for both beginners and pros. Sweat-resistant and easy to clean.', image: yogamat },
+  { id: 3, name: 'Dumbbells', price: '₹3000', description: 'The adjustable dumbbell set offers a versatile and space-saving solution for weight training at home. With quick-lock technology, you can change weights in seconds. The durable plates and anti-slip handle ensure a firm grip during intense workouts. Ideal for full-body exercises including biceps, triceps, shoulders, and chest. The compact rack makes storage easy, making it a favorite among fitness enthusiasts and beginners alike. Built to last and easy to maintain, these dumbbells are the perfect addition to your home gym setup. Perform strength training without clutter and take control of your fitness journey anytime, anywhere.', image: adjdumbell },
+];
 
-const ProductList = () => {
-  const initialProducts = [
-    {
-      id: 1,
-      name: 'Protein Powder',
-      quantity: 20,
-      price: '$45',
-      image: proteinImage,
-    },
-    {
-      id: 2,
-      name: 'Yoga Mat',
-      quantity: 10,
-      price: '$25',
-      image: yogaMatImage,
-    },
-    {
-      id: 3,
-      name: 'Dumbbells Set',
-      quantity: 15,
-      price: '$60',
-      image: dumbbellsImage,
-    },
-    {
-      id: 4,
-      name: 'Treadmill Oil',
-      quantity: 30,
-      price: '$10',
-      image: treadmillOilImage,
-    },
-    {
-      id: 5,
-      name: 'Resistance Bands',
-      quantity: 25,
-      price: '$15',
-      image: resistanceBandsImage,
-    },
-    {
-      id: 6,
-      name: 'Kettlebell',
-      quantity: 12,
-      price: '$35',
-      image: kettlebellImage,
-    },
-  ];
+const Productlist = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const [products, setProducts] = useState(initialProducts);
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+  };
 
-  const updateQuantity = (id, change) => {
-    setProducts(prev =>
-      prev.map(product =>
-        product.id === id
-          ? {
-              ...product,
-              quantity: Math.max(0, product.quantity + change),
-            }
-          : product
-      )
-    );
+  const closeOverlay = () => {
+    setSelectedProduct(null);
   };
 
   return (
     <div className="product-list">
-      <center><h2>Product List</h2></center>
+      <h2>Product List</h2>
       <div className="product-grid">
-        {products.map(product => (
-          <div className="product-card" key={product.id}>
-            <div className="product-image">
-              <img src={product.image} alt={product.name} />
-            </div>
+        {dummyProducts.map((product) => (
+          <div className="product-card" key={product.id} onClick={() => handleProductClick(product)}>
+            <img src={product.image} alt={product.name} className="product-thumbnail" />
             <h3>{product.name}</h3>
-            <p>Price: {product.price}</p>
-            <div className="quantity-control">
-              <button onClick={() => updateQuantity(product.id, -1)}>-</button>
-              <span>{product.quantity}</span>
-              <button onClick={() => updateQuantity(product.id, 1)}>+</button>
-            </div>
+            <p>{product.price}</p>
           </div>
         ))}
       </div>
+
+      {selectedProduct && (
+        <div className="product-overlay">
+          <div className="overlay-content">
+            <button className="close-btn" onClick={closeOverlay}>×</button>
+            <img src={selectedProduct.image} alt={selectedProduct.name} />
+            <h2>{selectedProduct.name}</h2>
+            <p><strong>Price:</strong> {selectedProduct.price}</p>
+            <p>{selectedProduct.description}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default ProductList;
+export default Productlist;

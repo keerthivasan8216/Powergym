@@ -8,12 +8,12 @@ const Customernav = () => {
     <nav className='navigation'>
       <h1>POWER GYM</h1>
       <ul className='list'>
-        <li><Link to="home">Home</Link></li>
-        <li><Link to="traininglist">Training List</Link></li>
-        <li><Link to="checkbox">Training Checkbox</Link></li>
-        <li><Link to="products">Product List</Link></li>
-        <li><Link to="review">Review Page</Link></li>
-        <li><Link to="../login">Logout</Link></li>
+        <li><Link to="/customer/home">Home</Link></li>
+        <li><Link to="/customer/traininglist">Training List</Link></li>
+        <li><Link to="/customer/checkbox">Training Checkbox</Link></li>
+        <li><Link to="/customer/products">Product List</Link></li>
+        <li><Link to="/customer/review">Review Page</Link></li>
+        <li><Link to="/" onClick={() => { localStorage.removeItem('userType');}}> Logout</Link></li>
       </ul>
     </nav>
     </>
