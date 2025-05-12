@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Admnav from './components/Admnav';
 import Admhome from './components/Admhome';
-import TrainersList from './components/Trainerslist';
+import TrainersList from './components/TrainersList';
 import Customerlist from './components/Customerlist';
 import Productlist from './components/Productlist';
 import Equipmentlist from './components/Equipmentlist';
