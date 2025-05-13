@@ -13,7 +13,7 @@ const Customernav = () => {
         <li><Link to="/customer/checkbox">Training Checkbox</Link></li>
         <li><Link to="/customer/products">Product List</Link></li>
         <li><Link to="/customer/review">Review Page</Link></li>
-        <li><Link to="/" onClick={() => { localStorage.removeItem('userType');}}> Logout</Link></li>
+        <li><Link to="/" > Logout</Link></li>
       </ul>
     </nav>
     </>

@@ -123,3 +123,57 @@ h2 {
 .close-btn:hover {
   background: #ffd700;
 }
+.product-controls {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.glow-btn {
+  background-color: #222;
+  border: 1px solid #ffcc00;
+  color: #ffcc00;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #ffcc00aa;
+}
+
+.glow-btn:hover {
+  background-color: #ffcc00;
+  color: #111;
+  box-shadow: 0 0 20px #ffcc00;
+}
+
+.delete-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background-color: #e74c3c;
+}
+
+.product-form input,
+.product-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.product-form input::placeholder,
+.product-form textarea::placeholder {
+  color: #aaa;
+}

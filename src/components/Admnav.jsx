@@ -20,6 +20,7 @@ const Admnav = () => {
         <li><Link to="/admin/products">Product List</Link></li>
         <li><Link to="/admin/equipment">Equipment List</Link></li>
         <li><Link to="/admin/attendance">Attendance</Link></li>
+        <li><Link to="/admin/review">Review</Link></li>
         <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
       </ul>
     </nav>

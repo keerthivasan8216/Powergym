@@ -1,17 +1,46 @@
 import React, { useState } from 'react';
-import './productlist.css'; 
-import adjdumbell from '/assets/adjdumbell.jpg'
-import yogamat from '/assets/yogamat.jpeg'
-import proteinpowder from '/assets/proteinpowder.png'
+import './productlist.css';
+import adjdumbell from '/assets/adjdumbell.jpg';
+import yogamat from '/assets/yogamat.jpeg';
+import proteinpowder from '/assets/proteinpowder.png';
 
-const dummyProducts = [
-  { id: 1, name: 'Protein Powder', price: '₹2050', description: 'Our premium protein powder helps build lean muscle mass and supports recovery post-workout. Packed with high-quality whey protein isolate, it mixes easily and tastes great. No added sugar, gluten-free, and trusted by fitness experts across the globe. Ideal for bodybuilders, athletes, and anyone seeking a convenient protein source.', image: proteinpowder },
-  { id: 2, name: 'Yoga Mat', price: '₹200', description: 'This anti-slip yoga mat provides excellent cushioning for your joints during stretches and poses. Made from eco-friendly material, it is lightweight, durable, and perfect for both beginners and pros. Sweat-resistant and easy to clean.', image: yogamat },
-  { id: 3, name: 'Dumbbells', price: '₹3000', description: 'The adjustable dumbbell set offers a versatile and space-saving solution for weight training at home. With quick-lock technology, you can change weights in seconds. The durable plates and anti-slip handle ensure a firm grip during intense workouts. Ideal for full-body exercises including biceps, triceps, shoulders, and chest. The compact rack makes storage easy, making it a favorite among fitness enthusiasts and beginners alike. Built to last and easy to maintain, these dumbbells are the perfect addition to your home gym setup. Perform strength training without clutter and take control of your fitness journey anytime, anywhere.', image: adjdumbell },
+const initialProducts = [
+  {
+    id: 1,
+    name: 'Protein Powder',
+    price: '₹2050',
+    description:
+      'Our premium protein powder helps build lean muscle mass and supports recovery post-workout...',
+    image: proteinpowder,
+  },
+  {
+    id: 2,
+    name: 'Yoga Mat',
+    price: '₹200',
+    description:
+      'This anti-slip yoga mat provides excellent cushioning...',
+    image: yogamat,
+  },
+  {
+    id: 3,
+    name: 'Dumbbells',
+    price: '₹3000',
+    description:
+      'The adjustable dumbbell set offers a versatile and space-saving solution...',
+    image: adjdumbell,
+  },
 ];
 
 const Productlist = () => {
+  const [products, setProducts] = useState(initialProducts);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [newProduct, setNewProduct] = useState({
+    name: '',
+    price: '',
+    description: '',
+    image: '',
+  });
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
@@ -21,15 +50,49 @@ const Productlist = () => {
     setSelectedProduct(null);
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewProduct({ ...newProduct, [name]: value });
+  };
+
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    const newId = products.length + 1;
+    const productToAdd = { ...newProduct, id: newId };
+    setProducts([...products, productToAdd]);
+    setNewProduct({ name: '', price: '', description: '', image: '' });
+    setShowForm(false);
+  };
+
+  const handleDeleteProduct = (id) => {
+    const updatedList = products.filter((product) => product.id !== id);
+    setProducts(updatedList);
+  };
+
   return (
     <div className="product-list">
       <h2>Product List</h2>
+      <div className="product-controls">
+        <button className="glow-btn" onClick={() => setShowForm(true)}>
+          + Add Product
+        </button>
+      </div>
+
       <div className="product-grid">
-        {dummyProducts.map((product) => (
+        {products.map((product) => (
           <div className="product-card" key={product.id} onClick={() => handleProductClick(product)}>
             <img src={product.image} alt={product.name} className="product-thumbnail" />
             <h3>{product.name}</h3>
             <p>{product.price}</p>
+            <button
+              className="delete-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDeleteProduct(product.id);
+              }}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
@@ -37,11 +100,61 @@ const Productlist = () => {
       {selectedProduct && (
         <div className="product-overlay">
           <div className="overlay-content">
-            <button className="close-btn" onClick={closeOverlay}>×</button>
+            <button className="close-btn" onClick={closeOverlay}>
+              ×
+            </button>
             <img src={selectedProduct.image} alt={selectedProduct.name} />
             <h2>{selectedProduct.name}</h2>
-            <p><strong>Price:</strong> {selectedProduct.price}</p>
+            <p>
+              <strong>Price:</strong> {selectedProduct.price}
+            </p>
             <p>{selectedProduct.description}</p>
+          </div>
+        </div>
+      )}
+
+      {showForm && (
+        <div className="product-overlay">
+          <div className="overlay-content">
+            <button className="close-btn" onClick={() => setShowForm(false)}>×</button>
+            <h2>Add New Product</h2>
+            <form onSubmit={handleAddProduct} className="product-form">
+              <input
+                type="text"
+                name="name"
+                placeholder="Product Name"
+                value={newProduct.name}
+                onChange={handleInputChange}
+                required
+              />
+              <input
+                type="text"
+                name="price"
+                placeholder="Price"
+                value={newProduct.price}
+                onChange={handleInputChange}
+                required
+              />
+              <input
+                type="text"
+                name="image"
+                placeholder="Image URL"
+                value={newProduct.image}
+                onChange={handleInputChange}
+                required
+              />
+              <textarea
+                name="description"
+                placeholder="Description"
+                value={newProduct.description}
+                onChange={handleInputChange}
+                rows="4"
+                required
+              />
+              <button type="submit" className="glow-btn">
+                Add Product
+              </button>
+            </form>
           </div>
         </div>
       )}
