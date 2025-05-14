@@ -43,13 +43,14 @@ const Login = () => {
         <p>Email Id:
           <input
             type="email"
-            placeholder="Enter your email"
+            placeholder="admin@gmail.com/customer"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            
           />
         </p>
         <p>Password:
-          <input type="password" placeholder="Enter your password" />
+          <input type="password" placeholder="1234" />
         </p>
         <div className="button">
           <button className="btn" onClick={handleLogin}>Login</button>
